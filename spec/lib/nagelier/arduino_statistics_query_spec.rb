@@ -15,7 +15,7 @@ describe Nagelier::ArduinoStatisticsQuery do
 
   describe "output_byte_for_arduino" do
     context "when happy" do
-      before { subject.stub percentage_of_step_goal_for_time_of_day: 1.00 }
+      let(:steps) { 10_000 }
       its(:output_byte_for_arduino) { should == 255.chr }
     end
     context "when angry" do

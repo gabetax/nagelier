@@ -16,12 +16,16 @@ module Nagelier
 
     def output_byte_for_arduino
       percentage = percentage_of_step_goal_for_time_of_day
-      if percentage < 0.50
-        ANGRY
-      elsif percentage >= 1.0
+      if current_steps >= step_goal
         HAPPY
+      elsif percentage < 0.50
+        ANGRY
       else
-        ((percentage - 0.50) * 2 * PROGRESS.max).to_i
+        if percentage >= 1.0
+          PROGRESS.max
+        else
+          ((percentage - 0.50) * 2 * PROGRESS.max).to_i
+        end
       end.chr
     end
 
