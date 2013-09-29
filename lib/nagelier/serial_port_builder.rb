@@ -3,7 +3,7 @@ require 'active_support/core_ext/hash/reverse_merge'
 module Nagelier
   class SerialPortBuilder
     DEFAULTS = {
-      device_path: '/dev/tty.usbmodem1421',
+      device_path: '/dev/cu.usbmodem1421',
       baud_rate:   9600,
       data_bits:   8,
       stop_bits:   1,
