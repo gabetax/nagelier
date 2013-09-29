@@ -5,11 +5,17 @@ module Nagelier
     end
 
     def start
-      puts "we're not using this yet, but here's some stats:"
-      puts client.activity_statistics
-
       io = SerialPortBuilder.get
-      demo io
+      # io ||= $stdout
+
+      query = ArduinoStatisticsQuery.new(todays_activities)
+
+      while true
+        byte = query.output_byte_for_arduino
+        io.write byte
+        puts "Wrote: #{byte.ord}"
+        sleep 60
+      end
     end
 
     def demo(io)
@@ -22,9 +28,12 @@ module Nagelier
       end
     end
 
-    def client
-      @client ||= Fitgem::Client.new FitBitApiCredentials.new(@user).client_credentials
+    def fitbit_client
+      @fitbit_client ||= Fitgem::Client.new FitBitApiCredentials.new(@user).client_credentials
     end
 
+    def todays_activities
+      fitbit_client.activities_on_date Date.today
+    end
   end
 end
