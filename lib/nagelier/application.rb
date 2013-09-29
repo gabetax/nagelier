@@ -13,6 +13,7 @@ module Nagelier
       while true
         byte = query.output_byte_for_arduino
         io.write byte
+        puts   query.debug_stats
         puts "Wrote: #{byte.ord}"
         sleep 60
       end
@@ -24,7 +25,7 @@ module Nagelier
         # IO#write calls #to_s on its input
         io.write i.chr
         puts "read: " + io.read_nonblock(1024).inspect rescue Errno::EAGAIN
-        sleep 0.5
+        sleep 0.1
       end
     end
 

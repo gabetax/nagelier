@@ -14,6 +14,10 @@ module Nagelier
       @activity = activity
     end
 
+    def debug_stats
+      "#{current_steps} of #{step_goal} steps, #{(percentage_of_step_goal_for_time_of_day * 100).round}% for time of day"
+    end
+
     def output_byte_for_arduino
       percentage = percentage_of_step_goal_for_time_of_day
       if current_steps >= step_goal
