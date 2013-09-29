@@ -1,3 +1,5 @@
+require 'active_support/core_ext/hash/reverse_merge'
+
 module Nagelier
   class SerialPortBuilder
     DEFAULTS = {
@@ -8,7 +10,7 @@ module Nagelier
       parity:      SerialPort::NONE
     }
 
-    def self.get(options)
+    def self.get(options = {})
       options.reverse_merge!(DEFAULTS)
       SerialPort.new(
         options[:device_path],
