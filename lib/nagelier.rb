@@ -9,5 +9,3 @@ require 'nagelier/serial_port_builder'
 
 module Nagelier
 end
-
-Nagelier::Application.new(ARGV[0]).start

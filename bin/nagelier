@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'nagelier'
+
+if ARGV.empty?
+  puts "Usage: #{$0} username"
+  puts
+  puts "(username data is storedin fitbit_api_credentials.yml)"
+  exit -1
+end
+
+Nagelier::Application.new(ARGV[0]).start
+
