@@ -9,10 +9,16 @@ module Nagelier
       puts client.activity_statistics
 
       io = SerialPortBuilder.get
-      (1..256).each do |i|
+      demo io
+    end
+
+    def demo(io)
+      (0..255).each do |i|
         puts "#{i} (hit enter for next, ctrl+c to exit)"
-        io.write i.to_s
-        $stdin.gets
+        # IO#write calls #to_s on its input
+        io.write i.chr
+        puts "read: " + io.read_nonblock(1024).inspect rescue Errno::EAGAIN
+        sleep 0.5
       end
     end
 
