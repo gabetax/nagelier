@@ -8,9 +8,15 @@ LED chandelier that talks to the [fitbit](http://www.fitbit.com) API, and nags y
 - If you're more than 50% behind your step goal, given the time of day, the chandelier will blink red and be angry at you.
 - Otherwise, the chandelier a solid color that changes as you get closer to your goal.
 
+nagelier was created at [2013 San Francisco Science Hack Day](http://sf.sciencehackday.com/2013/10/08/summarizing-science-hack-day-sf-2013/) and won the award for "Best Design".
+
 ## Video
 
 https://vine.co/v/h6F0HT3YdgQ
+
+## Hardware
+
+Read the [instructables post](http://www.instructables.com/id/Nagelier-the-chandelier-that-nags-you-to-get-off-t/?ALLSTEPS) for details on hardware construction.
 
 ## Instructions
 
